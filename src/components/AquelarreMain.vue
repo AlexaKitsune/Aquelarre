@@ -1,36 +1,42 @@
 <template>
   <main>
     
+    <AquelarrePopUp id="popup-MAIN"/>
+
     <section class="third-L">
       <span>
-        <p class="title-main" id="aquelarre-title"></p>
-        <p class="subtitle-main">The Coven</p>
+        <p class="title-main" id="aquelarre_"></p>
+        <p class="subtitle-main" id="coven_"></p>
       </span>
     </section>
 
     <section class="third-Center">
-      <AquelarrePentagram/>
+      <AquelarrePentagram v-on:click="showPopUp"/>
     </section>
 
     <section class="third-R">
-      <p class="title-main">A</p>
-      <p class="subtitle-main">B</p>
+      <span>
+        <p class="title-main">A</p>
+        <p class="subtitle-main">B</p>
+      </span>
     </section>
-
 
   </main>
 </template>
 
 <script>
 import AquelarrePentagram from './AquelarrePentagram.vue';
+import AquelarrePopUp from './AquelarrePopUp.vue';
 export default {
   name: 'AquelarreMain',
   components: {
-    AquelarrePentagram
+    AquelarrePentagram,
+    AquelarrePopUp
   },
 
   mounted(){
-    this.setName('El Aquelarre', '#aquelarre-title', 1000);
+    this.setName('El Aquelarre', '#aquelarre_', 1400);
+    this.setName('The Coven', '#coven_', 3100);
   },
 
   methods:{
@@ -44,9 +50,9 @@ export default {
 
         for (let i=0; i<nameAlexa.length; i++){
           if(i==0){ await wait(delay); }
-          console.log(nameAlexa[i]);
+          //console.log(nameAlexa[i]);
           document.querySelector(where).innerHTML += nameAlexa[i];
-        await wait(200);}
+        await wait(100);}
 
       }
       loop();
@@ -58,6 +64,11 @@ export default {
       }
       resetText(10000); resetText(25000); resetText(40000);*/
     },
+    
+    showPopUp(){
+      document.getElementById('popup-MAIN').style.display = "flex";
+      document.getElementById('popup-container').className = "popup-appear";
+    }
 
   }
 
@@ -75,13 +86,16 @@ export default {
     background-color: rgb(24, 33, 51);
   }
 
+  #popup-MAIN{
+    display: none;
+  }
+
   .third-L, .third-R{
     width: 25%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    
   }
 
   .third-L span, .third-R span{
@@ -92,7 +106,6 @@ export default {
     font-family: 'Bebas Neue', cursive;
     font-size: 3vw;
     margin-bottom: -1ch;
-    margin-top: -0.5ch;
     letter-spacing: 0.2ch;
     color:   #00fff0 ;
   }
@@ -111,5 +124,36 @@ export default {
     justify-content: center;
   }
 
+/*************************************************************************
+ * RESPONSIVE
+ *************************************************************************/
+@media all and (max-width:780px){
 
+  main{
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  .third-L, .third-R{
+    width: 100%;
+    height: 25%;
+  }
+
+  .third-L span, .third-R span{
+    margin-bottom: 5vh;
+  }
+
+  .third-Center{
+    width: 100%;
+    height: 50%;
+  }
+
+  .title-main{
+    font-size: 12vw;
+  }
+  .subtitle-main{
+    font-size: 4vw;
+  }
+
+}
 </style>

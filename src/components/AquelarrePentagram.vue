@@ -21,11 +21,11 @@
                 <div class="star-side5"></div>
             </div>
             <div id="symbol-imgs">
-                <img class="imgs-1" src="@/assets/animal_pillars/silhouette_cat.png">
-                <img class="imgs-2" src="@/assets/animal_pillars/silhouette_fox.png">
-                <img class="imgs-3" src="@/assets/animal_pillars/silhouette_doe.png">
-                <img class="imgs-4" src="@/assets/animal_pillars/silhouette_cow.png">
-                <img class="imgs-5" src="@/assets/animal_pillars/silhouette_hyen.png">
+                <div class="imgs-1"> <img class="inactive-img" src="@/assets/animal_pillars/orange_silhouette_cat.png"><img class="active-img" src="@/assets/animal_pillars/00fff0_silhouette_cat.png"> </div>
+                <div class="imgs-2"> <img class="inactive-img" src="@/assets/animal_pillars/orange_silhouette_fox.png"><img class="active-img" src="@/assets/animal_pillars/00fff0_silhouette_fox.png"> </div>
+                <div class="imgs-3"> <img class="inactive-img" src="@/assets/animal_pillars/orange_silhouette_doe.png"><img class="active-img" src="@/assets/animal_pillars/00fff0_silhouette_doe.png"> </div>
+                <div class="imgs-4"> <img class="inactive-img" src="@/assets/animal_pillars/orange_silhouette_cow.png"><img class="active-img" src="@/assets/animal_pillars/00fff0_silhouette_cow.png"> </div>
+                <div class="imgs-5"> <img class="inactive-img" src="@/assets/animal_pillars/orange_silhouette_hyn.png"><img class="active-img" src="@/assets/animal_pillars/00fff0_silhouette_hyn.png"> </div>
             </div>
             <div id="symbol-shapes">
                 <div class="symbol-shape1"><div class="symbol-shape_"></div></div>
@@ -72,6 +72,9 @@ export default {
 
 .symbol-external-circle * {
     position: absolute;
+    animation-name: appear-symbol;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 
 .symbol-internal-circle {
@@ -104,6 +107,9 @@ export default {
     justify-content: center;
     border-radius: 100vw;
     position: absolute;
+    animation-name: appear-symbol;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
 }
 
 .pentagon-side1,
@@ -146,6 +152,9 @@ export default {
     border-radius: 100vw;
     position: absolute;
     transform: rotate(180deg);
+    animation-name: appear-symbol;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
 }
 
 .star-side1,
@@ -186,6 +195,9 @@ export default {
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    animation-name: appear-symbol;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
 }
 
 .imgs-1,
@@ -194,10 +206,17 @@ export default {
 .imgs-4,
 .imgs-5 {
     width: 15%;
-    padding-bottom: 55%;
-    margin-top: -18%;
+    padding-bottom: 70%;
+    margin-top: -20%;
     transform-origin: 50% 100%;
     /*filter: drop-shadow(5px 5px 5px red);*/
+    position: absolute;
+}
+
+.inactive-img, .active-img{
+    width: 100%;
+    position: absolute;
+    top: 0;
 }
 
 .imgs-1 {
@@ -228,6 +247,9 @@ export default {
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    animation-name: appear-symbol;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
 }
 
 .symbol-shape1,
@@ -294,6 +316,15 @@ export default {
     transition: all 0.5s;
 }
 
+.active-img{
+    opacity: 0 !important;
+    z-index: 0;
+}
+.inactive-img{
+    opacity: 1 !important;
+    z-index: 1;
+}
+
 /* Animations transition (pentagon, star, img, shapes) */
 #symbol-pentagon,
 #symbol-star,
@@ -352,6 +383,14 @@ export default {
     transition: all 0.3s;
 }
 
+#container-pentagram:hover .active-img{
+    opacity: 1 !important;
+    filter: drop-shadow(0px 0px 5px #00fff0);
+}
+#container-pentagram:hover .inactive-img{
+    opacity: 0 !important;
+}
+
 /* Animation infinte */
 /*.set-rotations-pentagon, .set-rotations-star, .set-rotations-imgs, .set-rotations-shapes{
     animation-name: rotates_ !important;
@@ -378,4 +417,22 @@ export default {
     form{ transform:rotate(0deg); }
     to{ transform:rotate(360deg); }
 }*/
+
+/* Appear animations */
+@keyframes appear-symbol{
+    from{ opacity:0; }
+    to{ opacity:1; }
+}
+
+/*************************************************************************
+ * RESPONSIVE
+ *************************************************************************/
+@media all and (max-width:780px){
+
+    #container-pentagram {
+        width: 66vw;
+        height: 66vw;
+    }
+
+}
 </style>
