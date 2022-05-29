@@ -21,11 +21,11 @@
                 <div class="star-side5"></div>
             </div>
             <div id="symbol-imgs">
-                <img class="imgs-1" src="@/assets/silhouette_cat.png">
-                <img class="imgs-2" src="@/assets/silhouette_fox.png">
-                <img class="imgs-3" src="@/assets/silhouette_doe.png">
-                <img class="imgs-4" src="@/assets/silhouette_cow.png">
-                <img class="imgs-5" src="@/assets/silhouette_hyen.png">
+                <img class="imgs-1" src="@/assets/animal_pillars/silhouette_cat.png">
+                <img class="imgs-2" src="@/assets/animal_pillars/silhouette_fox.png">
+                <img class="imgs-3" src="@/assets/animal_pillars/silhouette_doe.png">
+                <img class="imgs-4" src="@/assets/animal_pillars/silhouette_cow.png">
+                <img class="imgs-5" src="@/assets/animal_pillars/silhouette_hyen.png">
             </div>
             <div id="symbol-shapes">
                 <div class="symbol-shape1"><div class="symbol-shape_"></div></div>
