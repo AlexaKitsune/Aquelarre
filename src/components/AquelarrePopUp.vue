@@ -15,11 +15,27 @@
                 <article>
                     <!--Mision-->
                     <div id="ARTICLE-mision">
-                        <h1 class="article-title">Titulo</h1>
+                        <h1 class="article-title">Misión</h1>
                         <h2 class="article-subtitle">Subtitulo</h2>
                         <p class="article-paragraph">Parrafo</p>
                     </div>
-                    
+                    <!--Vision-->
+                    <div id="ARTICLE-vision">
+                        <h1 class="article-title">Visión</h1>
+                    </div>
+                    <!--Valores-->
+                    <div id="ARTICLE-valores">
+                        <h1 class="article-title">Valores</h1>
+                    </div>
+                    <!--Quienes somos-->
+                    <div id="ARTICLE-quienessomos">
+                        <h1 class="article-title">¿Quienes somos?</h1>
+                    </div>
+                    <!--Comentarios-->
+                    <div id="ARTICLE-comentarios">
+                        <iframe src="/comment.html"></iframe>
+                    </div>
+
                 </article>
             </main>
         </div>
@@ -46,10 +62,13 @@ export default {
                 document.getElementById(`btn-${boton}`).style.color = "white";
                 document.getElementById(`btn-${boton}`).style.textShadow = "";
                 document.getElementById(`btn-${boton}`).classList.remove('menu-selected');
+                document.getElementById(`ARTICLE-${boton}`).style.display = "none";
             }
             document.getElementById(`btn-${clicked}`).style.color = "#00fff0";
             document.getElementById(`btn-${clicked}`).style.textShadow = "0px 0px 15px #00fff0";
             document.getElementById(`btn-${clicked}`).classList.add('menu-selected');
+            document.getElementById(`ARTICLE-${clicked}`).style.display = "flex";
+
             //Poner un match query para ocultar el menu solo en movil:
             var x = window.matchMedia("all and (max-width: 780px)");
             if (x.matches) {
@@ -67,8 +86,14 @@ export default {
             document.getElementById('menu-flecha').style.borderColor = "#00fff0";
             document.getElementById('menu-flecha').style.boxShadow = "0px 0px 10px #00fff0";
             document.getElementById('menu-flecha').style.transform = "rotate(0deg)";
-        }
+        },
+
+    },
+
+    mounted(){
+        this.setArticle('mision');
     }
+
 }
 </script>
 
@@ -88,9 +113,7 @@ section{
     height: 80vh;
     border-radius: 2vw;
     background-color: rgba(0,0,0, 40%);
-    -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
-    -moz-backdrop-filter: blur(5px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -201,10 +224,23 @@ article{
 }
 
 /* articles */
-#ARTICLE-mision{
+#ARTICLE-mision, #ARTICLE-comentarios{
     width: 100%;
     height: 100%;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+iframe{
+    height: fit-content;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden !important;
+    overflow-y: hidden;
+    background-color: transparent;
+    border: none;
+    border-radius: 0.6vw !important;
 }
 
 .article-title{
@@ -212,6 +248,7 @@ article{
     color: #00fff0;
     font-size: 4ch;
     margin-bottom: 0;
+    margin-top: 0;
 }
 
 .article-subtitle{
@@ -282,7 +319,7 @@ article{
         top: 0vw;
         left: 2vw;
         background-color: rgba(0,0,0,0.5);
-        backdrop-filter: blur(3px);
+        backdrop-filter: blur(5px);
         border: none;
         padding: 0 3vw 0 3vw;
         line-height: 4vh;
@@ -298,4 +335,5 @@ article{
     }
 
 }
+
 </style>
