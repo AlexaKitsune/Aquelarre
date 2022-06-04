@@ -16,8 +16,8 @@
 
     <section class="third-R">
       <span>
-        <p class="title-main">A</p>
-        <p class="subtitle-main">B</p>
+        <!--<p class="title-main">A</p>
+        <p class="subtitle-main">B</p>-->
       </span>
     </section>
 
@@ -66,6 +66,7 @@ export default {
     },
     
     showPopUp(){
+      //this.$parent.setfullscreen();
       document.getElementById('popup-MAIN').style.display = "flex";
       document.getElementById('popup-container').className = "popup-appear";
     }
