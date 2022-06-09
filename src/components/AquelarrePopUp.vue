@@ -6,31 +6,43 @@
             <div id="popup-closebutton" v-on:click="hidePopUp">+</div>
             <main>
                 <aside id="popup-menu">
-                    <p id="btn-mision" v-on:click="setArticle('mision')">Misión</p>
-                    <p id="btn-vision" v-on:click="setArticle('vision')">Visión</p>
-                    <p id="btn-valores" v-on:click="setArticle('valores')">Valores</p>
+                    <p id="btn-misionvision" v-on:click="setArticle('misionvision')">Misión y visión</p>
+                    <p id="btn-futuromejor" v-on:click="setArticle('futuromejor')">¿Cómo crearemos un futuro mejor?</p>
                     <p id="btn-quienessomos" v-on:click="setArticle('quienessomos')">¿Quienes somos?</p>
                     <p id="btn-comentarios" v-on:click="setArticle('comentarios')">Comentarios</p>
                 </aside>
                 <article>
-                    <!--Mision-->
-                    <div id="ARTICLE-mision">
-                        <h1 class="article-title">Misión</h1>
-                        <h2 class="article-subtitle">Subtitulo</h2>
-                        <p class="article-paragraph">Parrafo</p>
-                    </div>
-                    <!--Vision-->
-                    <div id="ARTICLE-vision">
+
+                    <!--Mision y Visión-->
+                    <div id="ARTICLE-misionvision">
+                        <h1 class="article-title">Misión  y visión</h1>
+                        <p class="article-paragraph">En El Aquelarre, buscamos crear un mundo mejor con base en el apoyo mutuo y orientación.</p>
+                        <p>Crearemos un impacto positivo en cada miembro del Aquelarre, así como en su calidad de vida.</p>
+                        <p><br></p>
                         <h1 class="article-title">Visión</h1>
+                        <p>El objetivo del Aquelarre es crear un futuro mejor, para los integrantes del mismo y las personas que nos rodean.</p>
                     </div>
+
                     <!--Valores-->
-                    <div id="ARTICLE-valores">
-                        <h1 class="article-title">Valores</h1>
+                    <div id="ARTICLE-futuromejor">
+                        <h1 class="article-title">¿Cómo crearemos un futuro mejor?</h1>
+                        <h2 class="article-subtitle">Metas a Corto Plazo</h2>
+                         <p>Crearemos una comunidad diversa con personas aptas y comprometidas por una mejora en común.<br></p>
+                        <h2 class="article-subtitle">Metas a Mediano Plazo</h2>
+                         <p>Llevaremos a cabo eventos mensuales o semestrales en los cuales haremos entregas de membresías y reconocimientos, intercambiaremos conocimientos y consolidaremos nuevas metas.<br></p>
+                        <h2 class="article-subtitle">A futuro</h2>
+                         <p>Tras haber alcanzado la estabilidad, cada integrante apoyará al anterior a dar sus pasos, y esto hará que empecemos a tener un impacto en la comunidad.<br></p>
                     </div>
+
                     <!--Quienes somos-->
                     <div id="ARTICLE-quienessomos">
                         <h1 class="article-title">¿Quienes somos?</h1>
+                        <p>🦌🐱🐄🦊🐆</p>
+                        <h2 class="article-subtitle">¿Cómo hago para formar parte de esto?</h2>
+                         <p>Habla con la persona que te facilitó la información, ella te canalizará con nuestros <i>Sondeadores de Aptitud</i>, los cuales dictaminarán si tus valores se alínean con los de La Comunidad.</p>
+                         <p>Tras una breve entrevista, tu proceso de inscripción estará casi completo. Se te proporcionarán unas metas personales sencillas, y si las cumples, ¡Felicidades, eres parte de La Comunidad!</p>
                     </div>
+                    
                     <!--Comentarios-->
                     <div id="ARTICLE-comentarios">
                         <iframe src="/comment.html"></iframe>
@@ -57,7 +69,7 @@ export default {
         },
 
         setArticle(clicked){
-            let botones = ['mision', 'vision', 'valores', 'quienessomos', 'comentarios'];
+            let botones = ['misionvision', 'futuromejor', 'quienessomos', 'comentarios'];
             for(let boton of botones){
                 document.getElementById(`btn-${boton}`).style.color = "white";
                 document.getElementById(`btn-${boton}`).style.textShadow = "";
@@ -91,7 +103,7 @@ export default {
     },
 
     mounted(){
-        this.setArticle('mision');
+        this.setArticle('misionvision');
     }
 
 }
@@ -192,7 +204,7 @@ main{
 }
 
 aside{
-    width: fit-content;
+    width: 22ch;
     height: 100%;
     padding: 0 1vw 0 1vw;
     border-right: 1px solid gray;
@@ -224,7 +236,7 @@ article{
 }
 
 /* articles */
-#ARTICLE-mision, #ARTICLE-comentarios{
+#ARTICLE-misionvision, #ARTICLE-futuromejor, #ARTICLE-comentarios, #ARTICLE-quienessomos{
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -254,6 +266,7 @@ iframe{
 .article-subtitle{
     font-family: 'Bebas Neue', cursive;
     font-size: 2.5ch;
+    margin-bottom: -1ch;
 }
 
 /*************************************************************************
@@ -314,6 +327,8 @@ iframe{
     }
     
     aside{
+        width: fit-content;
+        max-width: 95vw;
         position: absolute;
         height: fit-content;
         top: 0vw;
