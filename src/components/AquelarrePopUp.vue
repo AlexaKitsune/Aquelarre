@@ -45,7 +45,7 @@
                     
                     <!--Comentarios-->
                     <div id="ARTICLE-comentarios">
-                        <iframe src="/comment.html"></iframe>
+                        <iframe src="/comment.html" id="iframecomments"></iframe>
                     </div>
 
                 </article>
@@ -75,6 +75,7 @@ export default {
                 document.getElementById(`btn-${boton}`).style.textShadow = "";
                 document.getElementById(`btn-${boton}`).classList.remove('menu-selected');
                 document.getElementById(`ARTICLE-${boton}`).style.display = "none";
+                if(boton == 'comentarios'){ this.getCommentsUrl(); }
             }
             document.getElementById(`btn-${clicked}`).style.color = "#00fff0";
             document.getElementById(`btn-${clicked}`).style.textShadow = "0px 0px 15px #00fff0";
@@ -100,10 +101,15 @@ export default {
             document.getElementById('menu-flecha').style.transform = "rotate(0deg)";
         },
 
+        getCommentsUrl(){
+            document.getElementById('iframecomments').src = `${window.location.href}/comment.html`;
+        }
+
     },
 
     mounted(){
         this.setArticle('misionvision');
+        this.getCommentsUrl();
     }
 
 }
